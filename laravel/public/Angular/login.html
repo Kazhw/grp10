@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	<script src="js/Angular.js"></script>
+</head>
+<body >
+
+	<h2>Login</h2>
+	<div id="contentor">
+		<div class="header" id="loginForm">
+			<form action="#" method="get" id="id_form">
+				<div>
+					<label for="idLines">Username:</label>
+					<input type="text" id="idUsername" name="username" value="username">
+					<span class="error" id="msgError_username"></span>
+				</div>
+				<div>
+					<label for="idCols">Password:</label>
+					<input type="password" id="idPassword" name="password" value="password">
+					<span class="error" id="msgError_password"></span>
+				</div>
+				<div>
+					<input type="button" id="idLogin" name="Login" value="Login"><input type="button" id="idRegister" name="Register" value="Register">
+				</div>
+				
+			</form>
+		</div>
+	
+		<div id="main"  ng-controller="AppController">
+			
+			<div id="idStudents">Ana Martins (2130001), Carlos Rodrigues (2130002), Vitor Drake (2120003)</div>
+			<label type="text"  ng-model="studentsName"></label>
+		</div>
+	</div>
+</body>
+</html>

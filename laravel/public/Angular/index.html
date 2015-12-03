@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<title>Memory Game</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+</head>
+<body>
+			
+	<h1>Project 1</h1>
+	<h2>Memory Game</h2>
+	<div id="contentor">
+		<div class="header" id="gameForm">
+			<form action="#" method="get" id="id_form">
+				<div>
+
+					<label for="idLines">Total Lines:</label>
+					<input type="text" id="idLines" name="Lines" value="4">
+					<span class="error" id="msgError_Lines"></span>
+					
+				</div>
+			
+				<div>
+
+					<label for="idCols">Total Columns:</label>
+
+					<input type="text" id="idCols" name="cols" value="4">
+					<span class="error" id="msgError_Cols"></span>
+				</div>
+				<div>
+					<input type="button" id="idStartButton" name="startButton" value="Start Game">
+				</div>
+			</form>
+		</div>		
+		<div class="header" id="gameScore">
+			<div><span>Time:</span><span id="timeLabel"> 0 sec</span></div>
+			<div><span>Moves:</span><span id="movesLabel"> 0</span></div>
+			<div><span>Remaining Tiles:</span><span id="tilesLabel"> 16</span></div>
+		</div>		
+
+		<div id="main">
+			<table id="gameBoard">
+				<tbody>
+					<tr>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+					</tr>
+					<tr>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+					</tr>
+					<tr>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+					</tr>
+					<tr>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+						<td><img src="img/hidden.png" alt="game tile"></td>
+					</tr>
+				<tbody>
+			</table>
+
+			
+			<div id="idStudents">Ana Martins (2130001), Carlos Rodrigues (2130002), Vitor Drake (2120003)</div>
+		</div>	
+
+
+
+	</div>
+
+	
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="js/storage/jquery.storageapi.js"></script>
+	<script src="js/GameEngine.js"></script>
+	<script src="js/JQuery.js"></script>
+	<script type="text/javascript" src="http://jqueryui.com/wp-includes/js/comment-reply.min.js?ver=4.2.1"></script>
+	
+</body>
+</html>
