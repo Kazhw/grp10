@@ -1,0 +1,12 @@
+Users
+
+	Username	Password	Email	NumeroVitoria
+	
+	
+Games
+	id			UsersIDs		NumTiles	Status			WinnerID	TotalTime
+	
+
+Chat
+	id			GameID			message		ServerTime		UserID
+	
