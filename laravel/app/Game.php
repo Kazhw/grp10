@@ -7,7 +7,12 @@ class Game {
 	public $statusCounter = 0;	
 	public $gameStatus = 0;
 	public $players=array();
-	public $scores=array();
+	public $current=0;
+	public $numplayer=0;
+
+	public $jogada=0;
+	public $selectedPiece=-1;
+
 
 	public function gameStart($col,$lin,$playerArray){
 		for ($i=0;$i<$col;$i++){
@@ -24,6 +29,10 @@ class Game {
 			$this->$players[$v]=("id" => $v, "score"=>0);
 			
 		}
+		$this->$jogada=0;
+		$this->$current=0;
+		$this->$numplayer = sizeof($players);
+
 	}
 
 	protected function hasUnturnedPieces(){
@@ -36,36 +45,86 @@ class Game {
 
 	protected function gameEnd(){
 		if($this->hasUnturnedPieces()){return 0;}
-		$max = max($players[$v]);
+		$max=-1000;
+		$maxplayer;
+		foreach ($this->$players as $v) {
+		
+			if($max<$v["score"]){
+				$max=$v["score"];
+				$maxplayer=$v["id"];
+			}
+			$this->$current=-1;
+			return $maxplayer,$max;
+		}
+
 
 		}
 
 	}
-	protected fuction isPlaying($playerID){
 
+	protected function nextPlayer(){
+		if($this->$current==$this->$maxplayer){
+			$this->$current=0;
+			return $this->$players[$this->$current];
+			}
+		$this->$current=$this->$current+1;
+		return $this->$players[$this->$current];
 
 	}
 
+
+
 	public function playMove($playerNumber, $position){
-		if (($this->gameStatus!=1) && ($this->gameStatus!=2))
-			return false;		
-		if (($position<0) || ($position>9))
+		//Jogo terminado
+		if ($this->$current==-1){
 			return false;
-		if (($playerNumber!=1) && ($playerNumber!=2))
+		}
+
+		//player a tentar jogar nao e o current player
+		if ($playerNumber!=$this->$players[$this->$current]["id"]){
 			return false;
-		if ($this->gameStatus != $playerNumber)
-			return false;
+		}
+
+		//board[xpt]=0 -> peça escondida
+		//board[xpt]=1 -> peça Virada para cima
+		//board[xpt]=-1 -> peça removida
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		if ($this->board[$position] == 0) {
-			$this->board[$position] = $playerNumber;	
-			$endStatus = $this->gameEnd();			
-			if ($endStatus == 0)
-				$this->gameStatus = ($playerNumber == 1) ? 2 : 1;
-			else
-				$this->gameStatus = $endStatus;
-			$this->statusCounter++;
-			return true;
+			$this->board[$position] = 1;	
+			$endStatus = $this->gameEnd();
+
+			//jogador pode jogador		
+			if ($endStatus == 0){
+				//Jogada 1
+				 if ($this->$jogada%2==0){
+				 	
+				 	$this->$jogada=$this->$jogada+1;
+				 	$this->$selectedPiece=$position;
+
+				 //Jogada 2
+				 }else{
+				 	$this->$jogada=$this->$jogada+1;
+				 	if (samePiece($position,$this->slectedPiece)){
+				 		
+				 	}
+
+
+
+				 }
+			}
+			//game ended
+			else{
+
+
+			}
+			//	$this->gameStatus = $endStatus;
+			//$this->statusCounter++;
+			//return true;
 		}			    
 		return false;
+		
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	}
 
 
