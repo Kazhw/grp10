@@ -53,7 +53,7 @@ $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
 
-echo("<h1>O DAVID È GAY</h1>");
+
 
 $response->send();
 

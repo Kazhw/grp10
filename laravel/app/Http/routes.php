@@ -14,3 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
+
+Route::get('login', function () {
+	return view('login');
+});
+
+Route::get('menuLobby', function () {
+	return view('menuLobby');
+});
+
+Route::get('create_match', function () {
+	return view('create_match');
+});
+
+
+Route::get('home', array('as' => 'home', 'uses' => function(){
+  return view('home');
+}));
