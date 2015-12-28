@@ -55,7 +55,7 @@
 				Menu
 			</div>
 			<div>
-				<button class="button">New Game</button>
+				<button class="button" onclick="location.href='create_match';">New Game</button>
 			</div>
 			<div>
 				<button class="button">Cenas</button>
